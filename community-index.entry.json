@@ -1,0 +1,18 @@
+{
+  "id": "git_watch",
+  "name": "Git 监控",
+  "description": "定时轮询 GitHub，向指定群或好友推送仓库 Commit / Release 更新；预置 Pallas-Bot 与 WebUI。",
+  "repository": "https://github.com/TogetsuDo/pallas-plugin-git-watch.git",
+  "ref": "main",
+  "version": "0.1.0",
+  "author": "Blackish-Red",
+  "homepage": "https://github.com/TogetsuDo/pallas-plugin-git-watch",
+  "icon": "https://raw.githubusercontent.com/TogetsuDo/pallas-plugin-git-watch/main/assets/icon.png",
+  "cover": "https://raw.githubusercontent.com/TogetsuDo/pallas-plugin-git-watch/main/assets/cover.png",
+  "tags": [
+    "GitHub",
+    "更新推送",
+    "监控"
+  ],
+  "min_pallas_version": "4.0.0"
+}
