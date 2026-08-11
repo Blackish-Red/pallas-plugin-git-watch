@@ -5,6 +5,8 @@ from datetime import UTC, datetime
 
 from nonebot import logger
 
+from pallas.api.logging import format_plugin_event
+
 from .config import Config, WatchedRepo, get_config, list_watched_repos, resolve_github_token
 from .cursor_logic import apply_tip_decision, decide_tip
 from .github import (
@@ -71,6 +73,13 @@ async def process_repo(
                 if ok:
                     notified += 1
                     messages.append(text)
+                    if not dry_run:
+                        logger.info(
+                            format_plugin_event(
+                                "git_commit_push",
+                                f"Pushed a commit notification for [{repo.full_name}]@[{repo.branch}]",
+                            )
+                        )
                 else:
                     failed += 1
             apply_tip_decision(cursor, "commit", decision, notified_ok=ok)
@@ -92,6 +101,13 @@ async def process_repo(
                 if ok:
                     notified += 1
                     messages.append(text)
+                    if not dry_run:
+                        logger.info(
+                            format_plugin_event(
+                                "git_release_push",
+                                f"Pushed a release notification for [{repo.full_name}] ({release.tag})",
+                            )
+                        )
                 else:
                     failed += 1
             apply_tip_decision(cursor, "release", decision, notified_ok=ok)

@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+### Added
+
+- 补充 commit / release 通知推送业务事件日志
+
 ## [0.1.0] - 2026-08-01
 
 ### Added
