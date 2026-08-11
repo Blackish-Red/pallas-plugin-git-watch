@@ -105,7 +105,7 @@ async def process_repo(
                         logger.info(
                             format_plugin_event(
                                 "git_release_push",
-                                f"Pushed a release notification for [{repo.full_name}] ({release.tag})",
+                                f"Pushed a release notification for [{repo.full_name}], tag [{release.tag}]",
                             )
                         )
                 else:

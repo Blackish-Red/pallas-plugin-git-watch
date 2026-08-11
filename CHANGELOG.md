@@ -1,5 +1,11 @@
 # Changelog
 
+## [Unreleased]
+
+### Changed
+
+- 统一 release 通知事件文案。
+
 ## [0.1.1] - 2026-08-11
 
 ### Added
