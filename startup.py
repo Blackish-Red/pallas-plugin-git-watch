@@ -2,6 +2,8 @@ from __future__ import annotations
 
 from nonebot import logger
 
+from pallas.api.logging import format_plugin_event
+
 from .config import get_config
 
 JOB_ID = "git_watch.poll"
@@ -57,7 +59,12 @@ def reschedule_git_watch_job() -> None:
         max_instances=1,
         misfire_grace_time=3600,
     )
-    logger.info("git_watch: 已调度 interval={}m", minutes)
+    logger.info(
+        format_plugin_event(
+            "ready",
+            f"Scheduled git watch polling every {minutes} minutes",
+        )
+    )
 
 
 def setup_git_watch_runtime() -> None:
