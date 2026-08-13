@@ -2,7 +2,7 @@ from __future__ import annotations
 
 from nonebot import logger
 
-from pallas.api.logging import format_plugin_event
+from pallas.api.logging import register_plugin_startup_ready
 
 from .config import get_config
 
@@ -59,11 +59,9 @@ def reschedule_git_watch_job() -> None:
         max_instances=1,
         misfire_grace_time=3600,
     )
-    logger.info(
-        format_plugin_event(
-            "ready",
-            f"Scheduled git watch polling every {minutes} minutes",
-        )
+    register_plugin_startup_ready(
+        "git_watch",
+        detail=f"Git 监控轮询已调度：每 [{minutes}] 分钟执行一次",
     )
 
 
